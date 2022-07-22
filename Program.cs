@@ -73,7 +73,7 @@ namespace Tetris
                 SetupTemplates();
                 SetupCanvas();
                 MainLoop();
-                GraphicsWindow.ShowMessage("Game Over", "Small Basic Tetris");
+                GraphicsWindow.ShowMessage("Game Over", "Another Tetris");
             }
         }
 
@@ -509,7 +509,7 @@ namespace Tetris
             GraphicsWindow.FontName = "Georgia";
             GraphicsWindow.FontItalic = true;
             GraphicsWindow.FontSize = 36;
-            GraphicsWindow.DrawText(_x - 20, _y + 400, "Small Basic Tetris");
+            GraphicsWindow.DrawText(_x - 20, _y + 400, "Another Tetris");
             Microsoft.SmallBasic.Library.Program.Delay(200);
             GraphicsWindow.FontSize = 16;
             GraphicsWindow.DrawText(_x - 20, _y + 440, "ver.0.1");
