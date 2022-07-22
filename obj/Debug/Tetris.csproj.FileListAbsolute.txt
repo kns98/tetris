@@ -1,0 +1,9 @@
+C:\Users\kevin\Source\Repos\kns98\tetris\bin\Debug\tetris.exe
+C:\Users\kevin\Source\Repos\kns98\tetris\bin\Debug\tetris.pdb
+C:\Users\kevin\Source\Repos\kns98\tetris\bin\Debug\SmallBasicLibrary.dll
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\Tetris.csproj.AssemblyReference.cache
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\Tetris.csproj.SuggestedBindingRedirects.cache
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\Tetris.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\Tetris.csproj.CopyComplete
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\tetris.exe
+C:\Users\kevin\Source\Repos\kns98\tetris\obj\Debug\tetris.pdb
