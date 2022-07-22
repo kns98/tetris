@@ -5,7 +5,7 @@ using Math = Microsoft.SmallBasic.Library.Math;
 
 namespace tetris
 {
-    internal sealed class tetrisModule
+    internal sealed class Program
     {
         private static int moveDirection;
         private static int BOXES;
@@ -66,7 +66,7 @@ namespace tetris
                 PREVIEW_xpos = 13;
                 PREVIEW_ypos = 2;
                 GraphicsWindow.Clear();
-                GraphicsWindow.Title = "Small Basic Tetris";
+                GraphicsWindow.Title = "Another Tetris";
                 GraphicsWindow.Height = 580;
                 GraphicsWindow.Width = 700;
                 GraphicsWindow.Show();
@@ -113,7 +113,7 @@ namespace tetris
                     delayIndex = delay;
                     while ((delayIndex > 0) & (delay > 0))
                     {
-                        Program.Delay(10);
+                        Microsoft.SmallBasic.Library.Program.Delay(10);
                         delayIndex -= 10;
                     }
 
@@ -129,7 +129,7 @@ namespace tetris
         public static void HandleKey()
         {
             if (GraphicsWindow.LastKey == "Escape")
-                Program.End();
+                Microsoft.SmallBasic.Library.Program.End();
             if (GraphicsWindow.LastKey == "Left")
             {
                 moveDirection = -1;
@@ -255,7 +255,7 @@ namespace tetris
             else
             {
                 GraphicsWindow.ShowMessage("invalid parameter", "Error");
-                Program.End();
+                Microsoft.SmallBasic.Library.Program.End();
             }
 
             Array.SetValue(template, "color", Array.GetValue(basetemplate, "color"));
@@ -405,12 +405,12 @@ namespace tetris
                         x1 = var4;
                         while ((flag2 ? x1 <= var5 ? 1 : 0 : x1 >= var5 ? 1 : 0) != 0)
                         {
-                            Shapes.Remove(Array.GetValue("c", x1 + tetrisModule.y * CWIDTH));
+                            Shapes.Remove(Array.GetValue("c", x1 + Program.y * CWIDTH));
                             x1 += var6;
                         }
 
                         linesCleared += 1;
-                        var y = tetrisModule.y;
+                        var y = Program.y;
                         var var7 = 1;
                         var var8 = -1;
                         bool flag3 = var8 >= var8 - var8;
@@ -448,7 +448,7 @@ namespace tetris
         {
             GraphicsWindow.BrushColor = GraphicsWindow.BackgroundColor;
             GraphicsWindow.FillRectangle(XOFFSET, YOFFSET, CWIDTH * BWIDTH, CHEIGHT * BWIDTH);
-            Program.Delay(200);
+            Microsoft.SmallBasic.Library.Program.Delay(200);
             GraphicsWindow.PenWidth = 1;
             GraphicsWindow.PenColor = "Pink";
             var var1 = 0;
@@ -504,16 +504,16 @@ namespace tetris
             GraphicsWindow.DrawText(x + 25, y + 260, "Up Arrow = Rotate piece");
             GraphicsWindow.DrawText(x + 25, y + 280, "Down Arrow = Drop piece");
             GraphicsWindow.DrawText(x, y + 320, "Press to stop game");
-            Program.Delay(200);
+            Microsoft.SmallBasic.Library.Program.Delay(200);
             GraphicsWindow.BrushColor = "Black";
             GraphicsWindow.FontName = "Georgia";
             GraphicsWindow.FontItalic = true;
             GraphicsWindow.FontSize = 36;
             GraphicsWindow.DrawText(x - 20, y + 400, "Small Basic Tetris");
-            Program.Delay(200);
+            Microsoft.SmallBasic.Library.Program.Delay(200);
             GraphicsWindow.FontSize = 16;
             GraphicsWindow.DrawText(x - 20, y + 440, "ver.0.1");
-            Program.Delay(200);
+            Microsoft.SmallBasic.Library.Program.Delay(200);
             score = 0;
             PrintScore();
         }
