@@ -49,7 +49,6 @@ namespace tetris
         private static int x1;
         private static int y1;
 
-        [STAThread]
         public static void Main()
         {
             GraphicsWindow.KeyDown += HandleKey;
