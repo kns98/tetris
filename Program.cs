@@ -543,7 +543,7 @@ namespace Tetris
             GraphicsWindow.DrawText(_x - 20, _y + 400, "Another Tetris");
             Microsoft.SmallBasic.Library.Program.Delay(200);
             GraphicsWindow.FontSize = 16;
-            GraphicsWindow.DrawText(_x - 20, _y + 440, "ver.0.1");
+            GraphicsWindow.DrawText(_x - 20, _y + 440, "ver.1.0");
             Microsoft.SmallBasic.Library.Program.Delay(200);
             _score = 0;
             PrintScore();
