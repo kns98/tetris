@@ -2,14 +2,6 @@
 
 namespace Tetris
 {
-    internal class Utils
-    {
-        public static double Remainder(double dividend, double divisor)
-        {
-            return dividend % divisor;
-        }
-    }
-
     internal sealed class Program
     {
         private static int _moveDirection;
