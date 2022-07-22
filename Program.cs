@@ -1,15 +1,12 @@
-﻿using System;
-using Microsoft.SmallBasic.Library;
-using Array = Microsoft.SmallBasic.Library.Array;
-using Math = Microsoft.SmallBasic.Library.Math;
+﻿using Microsoft.SmallBasic.Library;
 
 namespace Tetris
 {
-    class Utils
+    internal class Utils
     {
         public static double Remainder(double dividend, double divisor)
         {
-            return (double)((double)dividend % (double)divisor);
+            return dividend % divisor;
         }
     }
 
@@ -220,12 +217,12 @@ namespace Tetris
                 var var1 = 0;
                 var var2 = _boxes - 1;
                 var var3 = 1;
-                bool flag = var3 >= var3 - var3;
+                var flag = var3 >= var3 - var3;
                 _i = var1;
                 while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
                 {
                     _v = Array.GetValue(_basetemplate, _i);
-                    _x = (int) Utils.Remainder(_v, 10);
+                    _x = (int)Utils.Remainder(_v, 10);
                     _y = _l - 1 - Math.Floor(_v / 10);
                     Array.SetValue(_template, _i, _x * 10 + _y);
                     _i += var3;
@@ -236,12 +233,12 @@ namespace Tetris
                 var var4 = 0;
                 var var5 = _boxes - 1;
                 var var6 = 1;
-                bool flag = var6 >= var6 - var6;
+                var flag = var6 >= var6 - var6;
                 _i = var4;
                 while ((flag ? _i <= var5 ? 1 : 0 : _i >= var5 ? 1 : 0) != 0)
                 {
                     _v = Array.GetValue(_basetemplate, _i);
-                    _x = _l - 1 -(int) Utils.Remainder(_v, 10);
+                    _x = _l - 1 - (int)Utils.Remainder(_v, 10);
                     _y = Math.Floor(_v / 10);
                     Array.SetValue(_template, _i, _x * 10 + _y);
                     _i += var6;
@@ -252,7 +249,7 @@ namespace Tetris
                 var var7 = 0;
                 var var8 = _boxes - 1;
                 var var9 = 1;
-                bool flag = var9 >= var9 - var9;
+                var flag = var9 >= var9 - var9;
                 _i = var7;
                 while ((flag ? _i <= var8 ? 1 : 0 : _i >= var8 ? 1 : 0) != 0)
                 {
@@ -283,7 +280,7 @@ namespace Tetris
             var var1 = 0;
             var var2 = _boxes - 1;
             var var3 = 1;
-            bool flag = var3 >= var3 - var3;
+            var flag = var3 >= var3 - var3;
             _i = var1;
             while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
             {
@@ -299,7 +296,7 @@ namespace Tetris
             var var1 = 0;
             var var2 = _boxes - 1;
             var var3 = 1;
-            bool flag = var3 >= var3 - var3;
+            var flag = var3 >= var3 - var3;
             _i = var1;
             while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
             {
@@ -351,7 +348,7 @@ namespace Tetris
             {
                 _v = Array.GetValue(Array.GetValue(_h, -1), _i);
                 _x = Math.Floor(_v / 10);
-                _y = (int) Utils.Remainder(_v, 10);
+                _y = (int)Utils.Remainder(_v, 10);
                 if ((_y + _ypos > _cheight) |
                     (Array.GetValue("c", _x + _xpos + (_y + _ypos) * _cwidth) != "."))
                 {
@@ -367,7 +364,7 @@ namespace Tetris
             var var1 = 0;
             var var2 = _boxes - 1;
             var var3 = 1;
-            bool flag = var3 >= var3 - var3;
+            var flag = var3 >= var3 - var3;
             _i = var1;
             while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
             {
@@ -388,7 +385,7 @@ namespace Tetris
             var var1 = _cheight - 1;
             var var2 = 0;
             var var3 = -1;
-            bool flag1 = var3 >= var3 - var3;
+            var flag1 = var3 >= var3 - var3;
             _y = var1;
             while ((flag1 ? _y <= var2 ? 1 : 0 : _y >= var2 ? 1 : 0) != 0)
             {
@@ -409,26 +406,26 @@ namespace Tetris
                         var var4 = 0;
                         var var5 = _cwidth - 1;
                         var var6 = 1;
-                        bool flag2 = var6 >= var6 - var6;
+                        var flag2 = var6 >= var6 - var6;
                         _x1 = var4;
                         while ((flag2 ? _x1 <= var5 ? 1 : 0 : _x1 >= var5 ? 1 : 0) != 0)
                         {
-                            Shapes.Remove(Array.GetValue("c", _x1 + Program._y * _cwidth));
+                            Shapes.Remove(Array.GetValue("c", _x1 + _y * _cwidth));
                             _x1 += var6;
                         }
 
                         _linesCleared += 1;
-                        var y = Program._y;
+                        var y = _y;
                         var var7 = 1;
                         var var8 = -1;
-                        bool flag3 = var8 >= var8 - var8;
+                        var flag3 = var8 >= var8 - var8;
                         _y1 = y;
                         while ((flag3 ? _y1 <= var7 ? 1 : 0 : _y1 >= var7 ? 1 : 0) != 0)
                         {
                             var var9 = 0;
                             var var10 = _cwidth - 1;
                             var var11 = 1;
-                            bool flag4 = var11 >= var11 - var11;
+                            var flag4 = var11 >= var11 - var11;
                             _x1 = var9;
                             while ((flag4 ? _x1 <= var10 ? 1 : 0 : _x1 >= var10 ? 1 : 0) != 0)
                             {
@@ -462,14 +459,14 @@ namespace Tetris
             var var1 = 0;
             var var2 = _cwidth - 1;
             var var3 = 1;
-            bool flag1 = var3 >= var3 - var3;
+            var flag1 = var3 >= var3 - var3;
             _x = var1;
             while ((flag1 ? _x <= var2 ? 1 : 0 : _x >= var2 ? 1 : 0) != 0)
             {
                 var var4 = 0;
                 var var5 = _cheight - 1;
                 var var6 = 1;
-                bool flag2 = var6 >= var6 - var6;
+                var flag2 = var6 >= var6 - var6;
                 _y = var4;
                 while ((flag2 ? _y <= var5 ? 1 : 0 : _y >= var5 ? 1 : 0) != 0)
                 {
