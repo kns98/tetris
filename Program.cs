@@ -84,7 +84,10 @@ namespace Tetris
             while (_end == 0)
             {
                 if (_sessionDelay > _enddelay)
+                {
                     _sessionDelay -= 1;
+                }
+
                 _delay = _sessionDelay;
                 _thisPiece = _nextPiece;
                 _template = Text.Append("template", Math.GetRandomNumber(7));
@@ -115,9 +118,14 @@ namespace Tetris
                     }
 
                     if (_yposdelta > 0)
+                    {
                         _yposdelta -= 1;
+                    }
                     else
+                    {
                         _ypos += 1;
+                    }
+
                     CheckStop();
                 }
             }
@@ -126,13 +134,19 @@ namespace Tetris
         public static void HandleKey()
         {
             if (GraphicsWindow.LastKey == "Escape")
+            {
                 Microsoft.SmallBasic.Library.Program.End();
+            }
+
             if (GraphicsWindow.LastKey == "Left")
             {
                 _moveDirection = -1;
                 ValidateMove();
                 if (_invalidMove == 0)
+                {
                     _xpos += _moveDirection;
+                }
+
                 MovePiece();
             }
 
@@ -141,14 +155,23 @@ namespace Tetris
                 _moveDirection = 1;
                 ValidateMove();
                 if (_invalidMove == 0)
+                {
                     _xpos += _moveDirection;
+                }
+
                 MovePiece();
             }
 
             if ((GraphicsWindow.LastKey == "Down") | (GraphicsWindow.LastKey == "Space"))
+            {
                 _delay = 0;
+            }
+
             if (!(GraphicsWindow.LastKey == "Up"))
+            {
                 return;
+            }
+
             _basetemplate = Array.GetValue(_h, -1);
             _template = "temptemplate";
             _rotation = "CW";
@@ -159,6 +182,7 @@ namespace Tetris
             _xposbk = _xpos;
             _yposdelta = 0;
             while ((_yposdelta == 0) & (Math.Abs(_xposbk - _xpos) < 3))
+            {
                 if (_invalidMove == 0)
                 {
                     _basetemplate = _template;
@@ -178,6 +202,7 @@ namespace Tetris
                     _xpos -= _invalidMove;
                     ValidateMove();
                 }
+            }
 
             if (_invalidMove != 0)
             {
@@ -352,7 +377,10 @@ namespace Tetris
             }
 
             if (!(_done == 1))
+            {
                 return;
+            }
+
             var var1 = 0;
             var var2 = _boxes - 1;
             var var3 = 1;
@@ -389,7 +417,10 @@ namespace Tetris
                     {
                         _piece = Array.GetValue("c", _x + _y * _cwidth);
                         if (_piece == ".")
+                        {
                             _x = _cwidth;
+                        }
+
                         _x += 1;
                     }
 
@@ -436,7 +467,10 @@ namespace Tetris
             }
 
             if (!(_linesCleared > 0))
+            {
                 return;
+            }
+
             _score += 100 * Math.Round(_linesCleared * 2.15 - 1);
             PrintScore();
         }
