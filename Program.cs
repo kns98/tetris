@@ -5,6 +5,14 @@ using Math = Microsoft.SmallBasic.Library.Math;
 
 namespace Tetris
 {
+    class Utils
+    {
+        public static double Remainder(double dividend, double divisor)
+        {
+            return (double)((double)dividend % (double)divisor);
+        }
+    }
+
     internal sealed class Program
     {
         private static int _moveDirection;
@@ -217,7 +225,7 @@ namespace Tetris
                 while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
                 {
                     _v = Array.GetValue(_basetemplate, _i);
-                    _x = Math.Remainder(_v, 10);
+                    _x = (int) Utils.Remainder(_v, 10);
                     _y = _l - 1 - Math.Floor(_v / 10);
                     Array.SetValue(_template, _i, _x * 10 + _y);
                     _i += var3;
@@ -233,7 +241,7 @@ namespace Tetris
                 while ((flag ? _i <= var5 ? 1 : 0 : _i >= var5 ? 1 : 0) != 0)
                 {
                     _v = Array.GetValue(_basetemplate, _i);
-                    _x = _l - 1 - Math.Remainder(_v, 10);
+                    _x = _l - 1 -(int) Utils.Remainder(_v, 10);
                     _y = Math.Floor(_v / 10);
                     Array.SetValue(_template, _i, _x * 10 + _y);
                     _i += var6;
@@ -297,7 +305,7 @@ namespace Tetris
             {
                 _v = Array.GetValue(Array.GetValue(_h, -1), _i);
                 _x = Math.Floor(_v / 10);
-                _y = Math.Remainder(_v, 10);
+                _y = (int)Utils.Remainder(_v, 10);
                 Shapes.Move(Array.GetValue(_h, _i), _xoffset + _xpos * _bwidth + _x * _bwidth,
                     _yoffset + _ypos * _bwidth + _y * _bwidth);
                 _i += var3;
@@ -312,7 +320,7 @@ namespace Tetris
             {
                 _v = Array.GetValue(Array.GetValue(_h, -1), _i);
                 _x = Math.Floor(_v / 10);
-                _y = Math.Remainder(_v, 10);
+                _y = (int)Utils.Remainder(_v, 10);
                 if (_x + _xpos + _moveDirection < 0)
                 {
                     _invalidMove = -1;
@@ -343,7 +351,7 @@ namespace Tetris
             {
                 _v = Array.GetValue(Array.GetValue(_h, -1), _i);
                 _x = Math.Floor(_v / 10);
-                _y = Math.Remainder(_v, 10);
+                _y = (int) Utils.Remainder(_v, 10);
                 if ((_y + _ypos > _cheight) |
                     (Array.GetValue("c", _x + _xpos + (_y + _ypos) * _cwidth) != "."))
                 {
@@ -364,7 +372,7 @@ namespace Tetris
             while ((flag ? _i <= var2 ? 1 : 0 : _i >= var2 ? 1 : 0) != 0)
             {
                 _v = Array.GetValue(Array.GetValue(_h, -1), _i);
-                Array.SetValue("c", Math.Floor(_v / 10) + _xpos + (Math.Remainder(_v, 10) + _ypos - 1) * _cwidth,
+                Array.SetValue("c", Math.Floor(_v / 10) + _xpos + (Utils.Remainder(_v, 10) + _ypos - 1) * _cwidth,
                     Array.GetValue(_h, _i));
                 _i += var3;
             }
